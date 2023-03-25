@@ -1,9 +1,9 @@
-import { Footer, Navbar } from '../components';
+import { Footer, Header } from '../components';
 import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../sections';
 
 const Page = () => (
   <div className="bg-[#000B09] overflow-hidden">
-    <Navbar />
+    <Header />
     <Hero />
     <About />
     <Explore />
