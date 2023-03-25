@@ -1,33 +1,48 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import styles from '../styles';
-import { navVariants } from '../utils/motion';
+import { useState } from 'react';
 
-const Navbar = () => (
-  <motion.nav
-    variants={navVariants}
-    initial="hidden"
-    whileInView="show"
-    className={`${styles.xPaddings} py-8 relative`}
-  >
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    <div className="absolute w-[50%] inset-0 gradient-01" />
+  const handleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
-    <div className={`${styles.innerWidth} mx-auto flex justify-between gap-8`}>
-      <img src="/search.svg" alt="logo" className="w-[28px] h-[28px] object-contain" />
-      <h2 className="font-extrabold text-[30px] leading-[30px] text-white text-center">GCC <span className="text-[#D61818]">x</span> CSD</h2>
-      <img src="/menu.svg" alt="menu" className="w-[28px] h-[28px] object-contain" id="menu" />
-    </div>
-    <div>
-      <ul className="w-[40%] mx-auto my-[1.5rem] flex justify-between text-white font-medium cursor-pointer">
-        <li><a href="/"> Home </a></li>
-        <li><a href="/"> GC CS Students' Club </a></li>
-        <li><a href="/"> Alumni </a></li>
-        <li><a href="/"> About </a></li>
+  return (
+    <nav className="hidden lg:flex mt-10 font-semibold text-white text-[22px]">
+      <ul className="flex mx-auto gap-x-28 cursor-pointer">
+        <NavItem href="/">Home</NavItem>
+        <NavItem href="/">GCSC</NavItem>
+        <DropdownItem label="CS x Resources" isOpen={isOpen} onClick={handleDropdown}>
+          <NavItem href="/" className="text-sm">CS x Library</NavItem>
+          <NavItem href="/" className="text-sm">CS x PYQPS</NavItem>
+          <NavItem href="/" className="text-sm">CS x Practicals</NavItem>
+        </DropdownItem>
+        <NavItem href="/">CS x Alumni</NavItem>
+        <NavItem href="/">CS x About</NavItem>
       </ul>
-    </div>
-  </motion.nav>
+    </nav>
+  );
+};
+
+const NavItem = ({ href, children, className }) => (
+  <li className={className}>
+    <a href={href}>{children}</a>
+  </li>
+);
+
+const DropdownItem = ({ label, isOpen, onClick, children }) => (
+  <li>
+    <button type="button" onClick={onClick}>
+      {label}
+    </button>
+    {isOpen && (
+      <ul className="flex flex-col space-y-4 text-white text-lg font-semibold text-center">
+        {children}
+      </ul>
+    )}
+  </li>
 );
 
 export default Navbar;
