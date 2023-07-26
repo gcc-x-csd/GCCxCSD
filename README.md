@@ -30,7 +30,7 @@ Step right up and witness the breathtaking features that "GCC X CSD" has to offe
 
 🌟 An about page that delves deep into the history, mission, and vision of the esteemed department.
 
-🌟 An alumni page where knowledge meets nostalgia, fostering mentorship and networking among current and former students.
+🌟 A community page where knowledge meets nostalgia, fostering mentorship and networking among current and former students.
 
 🌟 A captivating blog page that shares tales of the department and industry's wonders and discoveries.
 
