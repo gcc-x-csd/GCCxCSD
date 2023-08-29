@@ -1,6 +1,6 @@
 # Welcome to the "GCC X CSD" Adventure!
 
-Are you ready to embark on a thrilling journey into the world of computer science? Hold on tight as we introduce you to the cutting-edge "GCC X CSD" project—a full-stack website that will take you on an exhilarating tour through the Department of Computer Science at Gurucharan College, Silchar!
+ARE YOU READY TO EMBARK ON A THRILLING JOURNEY INTO THE WORLD OF COMPUTER SCIENCE? Hold on tight as we introduce you to the cutting-edge "GCC X CSD" project—a full-stack website that will take you on an exhilarating tour through the Department of Computer Science at Gurucharan College, Silchar!
 
 ## Unveiling the Wonders of "GCC X CSD"
 
