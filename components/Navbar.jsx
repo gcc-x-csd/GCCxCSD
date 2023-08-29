@@ -1,48 +1,44 @@
-'use client';
-
-import { useState } from 'react';
+import React from 'react'
+import Link from 'next/link'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <nav className="hidden lg:flex mt-10 font-semibold text-white text-[22px]">
-      <ul className="flex mx-auto gap-x-28 cursor-pointer">
-        <NavItem href="/">Home</NavItem>
-        <NavItem href="/">GCSC</NavItem>
-        <DropdownItem label="CS x Resources" isOpen={isOpen} onClick={handleDropdown}>
-          <NavItem href="/" className="text-sm">CS x Library</NavItem>
-          <NavItem href="/" className="text-sm">CS x PYQPS</NavItem>
-          <NavItem href="/" className="text-sm">CS x Practicals</NavItem>
-        </DropdownItem>
-        <NavItem href="/">CS x Alumni</NavItem>
-        <NavItem href="/">CS x About</NavItem>
-      </ul>
-    </nav>
-  );
-};
+    <div className='fixed w-full z-10 hidden md:block'>
+        <ul className='flex md:gap-10 justify-center bg-gradient-to-r from-black to-indigo-950  text-white text-md py-2'>
+            <Link href='/'>
+                <li className='hover:border-b-2 hover:border-cyan-500'>Home</li>
+            </Link>
+    <details>
+        <summary className='cursor-pointer  hover:border-purple-600'>CSxResources</summary>
+            <div className='bg-gray-950 ml-2 mt-1 py-1 absolute rounded-md'>
+                <Link href='/cs-x-resources/pyqp'>
+                    <li className='hover:bg-purple-900 hover:border-purple-600 p-1 px-4 text-sm rounded-md'>CSxPYQPs</li>
+                </Link>
+                <Link href='/cs-x-resources/library'>
+                    <li className='hover:bg-purple-900 hover:border-purple-600 p-1 px-4 text-sm rounded-md'>CSxLibrary</li>
+                </Link>
+                <Link href='/cs-x-resources/practicals'>
+                    <li className='hover:bg-purple-900 hover:border-purple-600 p-1 px-4 text-sm rounded-md'>CSxPracticals</li>
+                </Link>
+            </div>
+    </details> 
 
-const NavItem = ({ href, children, className }) => (
-  <li className={className}>
-    <a href={href}>{children}</a>
-  </li>
-);
+            <Link href='/eventblog'>
+                <li className='hover:border-b-2 hover:border-cyan-500'>Blog</li>
+            </Link>
+            <Link href='/'>
+                <li className='hover:border-b-2 hover:border-cyan-500'>CSxAlumni</li>
+            </Link>
+            <Link href='/gallery'>
+                <li className='hover:border-b-2 hover:border-cyan-500'>Gallery</li>
+            </Link>
+            <Link href='/about'>
+                <li className='hover:border-b-2 hover:border-cyan-500'>About</li>
+            </Link>
+        </ul>
+      
+    </div>
+  )
+}
 
-const DropdownItem = ({ label, isOpen, onClick, children }) => (
-  <li>
-    <button type="button" onClick={onClick}>
-      {label}
-    </button>
-    {isOpen && (
-      <ul className="flex flex-col space-y-4 text-white text-lg font-semibold text-center">
-        {children}
-      </ul>
-    )}
-  </li>
-);
-
-export default Navbar;
+export default Navbar
